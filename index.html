@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Study</title>
+
+        <script src="shuffle.js"></script>
+        <script src="loadSet.js"></script>
+        <script src="learn.js"></script>
+    </head>
+    <body onload="setup()">
+        <span id="lbl"></span>
+        <br/><br/>
+        <input id="inpt" keypress="inputListener(event)"/>
+        <button onclick="next()">Next</button>
+        <br/>
+        <progress id="prgrss" value="0" max="100"></progress>
+    </body>
+</html>
