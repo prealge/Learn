@@ -3,7 +3,7 @@ var label = document.getElementById("lbl");
 var button = document.getElementById("btn");
 var container = document.getElementById("container");
 var progressBar = document.getElementById("progress");
-var termNumber, progress, q, fullSet, set;
+var termNumber, progress, q, set;
 var mode = 0;
 
 function answer() {
@@ -38,16 +38,23 @@ function question() {
     input.select();
 }
 
-function setupLearn() {
-    set = fullSet;
-    button.textContent = "Next";
-    progressBar.max = set.length;
-    progress = 0;
-    termNumber = 0, q = false;
+function setupLearn(file, start, count) {
+    $.getJSON("sets/" + file + ".json", function(data){
+        set = Object.entries(data.set);
+        set = set.splice(start, count);
+        set = shuffle(set);
+        button.textContent = "Next";
+        progressBar.max = set.length;
+        progress = 0;
+        termNumber = 0, q = false;
+        question();
+    }).fail(function(error){
+        console.log(error);
+    });
 }
 
 function next() {
-    if (set.length === 0) setupLearn();
+    if (set.length === 0) setupLearn("APJuniorEnlgish", 0, 20);
     if (q) answer();
     else question();
     input.focus();
@@ -77,10 +84,5 @@ function shuffle(array) {
     return array;
 }
 
-$.getJSON("sets/APJuniorEnglish.json", function(data){
-    fullSet = shuffle(data.set);
-    setupLearn();
-    question();
-}).fail(function(error){
-    console.log(error);
-});
+
+setupLearn("APJuniorEnglish", 0, 20)
