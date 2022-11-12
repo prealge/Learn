@@ -1,0 +1,71 @@
+span#learnLabel {
+    position: fixed;
+    bottom: 60%;
+    left: 10%;
+    width: 80%;
+    font-size: 20px;
+}
+
+a#learnHomeLink {
+    position: fixed;
+    left: 5%;
+    top: 5%;
+    color: gray;
+}
+
+div#learnContainer {
+    position: fixed;
+    width: 80%;
+    left: 10%;
+    bottom: 15%;
+}
+
+input#learnInput {
+    width: 50%;
+}
+
+progress#learnProgress {
+    position: fixed;
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    height: 10px;
+    border-radius: 5px; 
+}
+
+progress#learnProgress::-webkit-progress-bar {
+    background-color: white;
+}
+
+progress#learnProgress::-webkit-progress-value {
+    background-color: #871bc2;
+    border-radius: 7px;
+}
+
+.correct input {
+    color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.correct button {
+    background-color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.incorrect input {
+    color: #C2321B !important;
+    border-color: #C2321B !important;
+}
+
+.incorrect button {
+    background-color: #C2321B !important;
+    border-color: #C2321B !important;
+}
+
+.correct progress::-webkit-progress-value {
+    background-color: #57C21B !important;
+}
+
+.incorrect progress::-webkit-progress-value {
+    background-color: #C2321B !important;
+}

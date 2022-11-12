@@ -1,11 +1,40 @@
-var input = document.getElementById("inpt");
-var label = document.getElementById("lbl");
-var button = document.getElementById("btn");
-var container = document.getElementById("container");
-var progressBar = document.getElementById("progress");
-var termNumber, progress, q, set;
-var mode = 0;
+// Learn.JS
+// prealge
 
+// Reads URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+
+// Defines HTML elements
+var input = document.getElementById("learnInput");
+var label = document.getElementById("learnLabel");
+var button = document.getElementById("learnButton");
+var container = document.getElementById("learnContainer");
+var progressBar = document.getElementById("learnProgress");
+
+// Defines miscellaneous variables
+var termNumber, progress, q;
+
+// Defines set variable
+var set;
+
+// Sets mode for learn
+var mode;
+if (urlParams.get('mode')) mode = Number(urlParams.get('mode'));
+else mode = 0;
+
+// Shuffles the order of an array
+function shuffle(array) {
+    var m = array.length, t, i;
+    while (m) {
+      i = Math.floor(Math.random() * m--);
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+    return array;
+}
+
+// Checks answers
 function answer() {
     q = false;
     input.readOnly = true;
@@ -28,6 +57,7 @@ function answer() {
     }
 }
 
+// Shows next question
 function question() {
     q = true;
     label.textContent = set[termNumber][mode == 0 ? 1 : 0];
@@ -38,10 +68,11 @@ function question() {
     input.select();
 }
 
-function setupLearn(file, start, count) {
-    $.getJSON("sets/" + file + ".json", function(data){
+// Reads study set from JSON file and resets HTML elements
+function setupLearn() {
+    $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
         set = Object.entries(data.set);
-        set = set.splice(start, count);
+        if (urlParams.get('i') && urlParams.get('c')) set = set.splice(Number(urlParams.get('i')), Number(urlParams.get('c')));
         set = shuffle(set);
         button.textContent = "Next";
         progressBar.max = set.length;
@@ -53,6 +84,7 @@ function setupLearn(file, start, count) {
     });
 }
 
+// Handles question, answer, and reset functions
 function next() {
     if (set.length === 0) setupLearn("APJuniorEnlgish", 0, 20);
     if (q) answer();
@@ -60,11 +92,13 @@ function next() {
     input.focus();
 }
 
+// Sets interval to run progress bar animation
 setInterval(function() {
     if (progressBar.value < progress) progressBar.value += (progress-progressBar.value)/50;
     if (progressBar.value > progress) progressBar.value -= (progressBar.value-progress)/50;
 }, 1);
 
+// Event listener to run next function and enable/disable button
 input.addEventListener('keyup', function (event) {
     if (input.value === "") button.disabled = true;
     else {
@@ -73,16 +107,5 @@ input.addEventListener('keyup', function (event) {
     }
 });
 
-function shuffle(array) {
-    var m = array.length, t, i;
-    while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
-    }
-    return array;
-}
-
-
-setupLearn("APJuniorEnglish", 0, 20)
+// Calls setup function
+setupLearn();
