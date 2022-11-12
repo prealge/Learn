@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap');
+
+body {
+    height: 100%;
+    padding: 10%;
+    font-family: 'IBM Plex Sans JP', sans-serif;
+}
+
+#lbl {
+    font-size: 20px;
+    padding: 10px;
+    float: center;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    background-color: #871bc2;
+    color: white;
+    padding: 12px 20px;
+    margin: 20px 10px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:disabled {
+    background-color: gray;
+}
+
+input {
+    width: 50%;
+    padding: 10px;
+    margin: 20px 0px;
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: solid 2px #871bc2;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.correct input {
+    color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.correct button {
+    background-color: #57C21B !important;
+}
+
+.incorrect input {
+    color: #C2321B !important;
+    border-color: #C2321B !important;
+}
+
+.incorrect button {
+    background-color: #C2321B !important;
+}
+
+progress {
+    position: fixed;
+    bottom: 5%;
+    left: 10%;
+    width: 80%;
+    height: 10px;
+    border-radius: 5px; 
+}
+
+progress::-webkit-progress-bar {
+    background-color: white;
+}
+
+progress::-webkit-progress-value {
+    background-color: #871bc2;
+    border-radius: 7px;
+}
+
+.correct progress::-webkit-progress-value {
+    background-color: #57C21B !important;
+}
+
+.incorrect progress::-webkit-progress-value {
+    background-color: #C2321B !important;
+}

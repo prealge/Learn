@@ -2,17 +2,19 @@
 <html>
     <head>
         <title>Study</title>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="style.css">
         <script src="shuffle.js"></script>
         <script src="loadSet.js"></script>
         <script src="learn.js"></script>
     </head>
-    <body onload="setup()">
-        <span id="lbl"></span>
-        <br/><br/>
-        <input id="inpt" keypress="inputListener(event)"/>
-        <button onclick="next()">Next</button>
-        <br/>
-        <progress id="prgrss" value="0" max="100"></progress>
+    <body onload="loadLearn()">
+        <div id="container">
+            <span id="lbl"></span>
+            <br/>
+            <input id="inpt" keypress="inputListener(event)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+            <button id="btn" onclick="next()">Next</button>
+            <progress id="progress"></progress>
+        </div>
     </body>
 </html>

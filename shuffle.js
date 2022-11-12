@@ -1,5 +1,3 @@
-//Fisher-Yates Shuffle
-
 function shuffle(array) {
     var m = array.length, t, i;
     while (m) {
