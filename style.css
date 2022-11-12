@@ -1,15 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap');
 
 body {
+    position: relative;
     height: 100%;
     padding: 10%;
     font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
 #lbl {
+    position: fixed;
+    bottom: 60%;
+    left: 10%;
+    width: 80%;
     font-size: 20px;
-    padding: 10px;
-    float: center;
+}
+
+#container {
+    position: fixed;
+    width: 80%;
+    left: 10%;
+    bottom: 15%;
 }
 
 button {
@@ -18,53 +28,32 @@ button {
     background-color: #871bc2;
     color: white;
     padding: 12px 20px;
-    margin: 20px 10px;
-    font-size: 14px;
+    margin: 10px;
+    font-size: 16px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
 }
 
 button:disabled {
     background-color: gray;
+    border-color: gray;
 }
 
 input {
-    width: 50%;
-    padding: 10px;
-    margin: 20px 0px;
-    font-size: 16px;
-    color: black;
-    background-color: white;
+    outline: none;
     border: solid 2px #871bc2;
     border-radius: 5px;
-}
-
-input:focus {
-    outline: none;
-}
-
-.correct input {
-    color: #57C21B !important;
-    border-color: #57C21B !important;
-}
-
-.correct button {
-    background-color: #57C21B !important;
-}
-
-.incorrect input {
-    color: #C2321B !important;
-    border-color: #C2321B !important;
-}
-
-.incorrect button {
-    background-color: #C2321B !important;
+    background-color: white;
+    width: 50%;
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    color: black;
 }
 
 progress {
     position: fixed;
-    bottom: 5%;
+    bottom: 10%;
     left: 10%;
     width: 80%;
     height: 10px;
@@ -78,6 +67,26 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
     background-color: #871bc2;
     border-radius: 7px;
+}
+
+.correct input {
+    color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.correct button {
+    background-color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.incorrect input {
+    color: #C2321B !important;
+    border-color: #C2321B !important;
+}
+
+.incorrect button {
+    background-color: #C2321B !important;
+    border-color: #C2321B !important;
 }
 
 .correct progress::-webkit-progress-value {

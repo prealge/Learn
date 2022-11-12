@@ -1,4 +1,9 @@
-var label, input, button, progressBar, container, termNumber, progress, q;
+var input = document.getElementById("inpt");
+var label = document.getElementById("lbl");
+var button = document.getElementById("btn");
+var container = document.getElementById("container");
+var progressBar = document.getElementById("progress");
+var termNumber, progress, q, fullSet, set;
 var mode = 0;
 
 function answer() {
@@ -34,7 +39,7 @@ function question() {
 }
 
 function setupLearn() {
-    loadSet();
+    set = fullSet;
     button.textContent = "Next";
     progressBar.max = set.length;
     progress = 0;
@@ -48,23 +53,34 @@ function next() {
     input.focus();
 }
 
-function loadLearn() {
-    input = document.getElementById("inpt");
-    label = document.getElementById("lbl");
-    button = document.getElementById("btn");
-    container = document.getElementById("container");
-    progressBar = document.getElementById("progress");
-    setInterval(function() {
-        if (progressBar.value < progress) progressBar.value += (progress-progressBar.value)/50;
-        if (progressBar.value > progress) progressBar.value -= (progressBar.value-progress)/50;
-    }, 1);
-    input.addEventListener('keyup', function (event) {
-        if (input.value === "") button.disabled = true;
-        else {
-            button.disabled = false;
-            if (event.key === "Enter" && input.value !== "") next();
-        }
-    });
+setInterval(function() {
+    if (progressBar.value < progress) progressBar.value += (progress-progressBar.value)/50;
+    if (progressBar.value > progress) progressBar.value -= (progressBar.value-progress)/50;
+}, 1);
+
+input.addEventListener('keyup', function (event) {
+    if (input.value === "") button.disabled = true;
+    else {
+        button.disabled = false;
+        if (event.key === "Enter" && input.value !== "") next();
+    }
+});
+
+function shuffle(array) {
+    var m = array.length, t, i;
+    while (m) {
+      i = Math.floor(Math.random() * m--);
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+    return array;
+}
+
+$.getJSON("sets/APJuniorEnglish.json", function(data){
+    fullSet = shuffle(data.set);
     setupLearn();
     question();
-}
+}).fail(function(error){
+    console.log(error);
+});

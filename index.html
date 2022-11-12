@@ -4,17 +4,15 @@
         <title>Study</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="style.css">
-        <script src="shuffle.js"></script>
-        <script src="loadSet.js"></script>
-        <script src="learn.js"></script>
     </head>
-    <body onload="loadLearn()">
+    <body>
+        <span id="lbl"></span>
         <div id="container">
-            <span id="lbl"></span>
-            <br/>
             <input id="inpt" keypress="inputListener(event)" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
             <button id="btn" onclick="next()">Next</button>
             <progress id="progress"></progress>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="learn.js"></script>
     </body>
 </html>
