@@ -1,0 +1,8 @@
+button.openTool {
+    background-color: #1BAAC2;
+    padding-left: 15px;
+}
+
+button.openTool ion-icon {
+    padding-right: 5px;
+}

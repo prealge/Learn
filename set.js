@@ -7,7 +7,7 @@ const urlParams = new URLSearchParams(window.location.search);
 $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
     document.getElementById("setTitle").textContent = data.title;
     document.getElementById("setHeader").textContent = data.title;
-    document.getElementById("setLearn").onclick = function () {
+    document.getElementById("openLearn").onclick = function () {
         window.location.href = "learn.html?file=" + urlParams.get('file');
     };
     for (let i = 0; i < Object.keys(data.set).length; i++) {

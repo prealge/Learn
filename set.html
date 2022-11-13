@@ -4,13 +4,19 @@
         <title id="setTitle">Loading Set...</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="style.css">
+        <link type="text/css" rel="stylesheet" href="set.css">
     </head>
     <body>
-        <button onclick="window.location.href = 'index.html'" id="back">Back</button>
-        <h1 id="setHeader">Loading Set...</h1>
-        <button id="setLearn">Learn</button>
-        <table id="setTable">
-        </table>
+        <div style="display: flex;">
+            <button onclick="window.location.href = 'index.html'" id="back"><ion-icon name="arrow-back-circle-outline"></ion-icon></button>
+            <h1 id="setHeader">Loading Set...</h1>
+        </div>
+        <button id="openLearn" class="openTool">
+            <ion-icon name="pencil-sharp"></ion-icon> Learn
+        </button>
+        <table id="setTable"></table>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="set.js"></script>
     </body>

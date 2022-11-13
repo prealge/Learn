@@ -5,6 +5,12 @@ body {
     font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
+ion-icon {
+    font-size: 16;
+    position: relative;
+    top: 2px;
+}
+
 a {
     font-size: 16px;
     color: #1BAAC2;
@@ -23,7 +29,6 @@ button {
     padding: 12px 20px;
     margin: 10px;
     font-size: 16px;
-    text-align: center;
     text-decoration: none;
 }
 
@@ -33,9 +38,11 @@ button:disabled {
 }
 
 button#back {
-    padding: 0px;
+    padding: 10px;
+    margin: 0px;
     background-color: white;
     color: gray;
+    font-size: 40px;
 }
 
 

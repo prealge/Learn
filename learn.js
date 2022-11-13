@@ -99,6 +99,7 @@ input.addEventListener('keyup', function (event) {
 $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
     set = shuffle(Object.entries(data.set));
     progressBar.max = set.length;
+    document.getElementById("learnTitle").textContent = data.title;
     question();
 }).fail(function(error){
     console.log(error);
