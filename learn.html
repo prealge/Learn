@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Learn</title>
+        <title id="Learn Title">Loading Learn...</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="style.css">
         <link type="text/css" rel="stylesheet" href="learn.css">
     </head>
     <body>
-        <a href="index.html" id="learnHomeLink">Home</a>
+        <button onclick="exitLearn()" id="back">Back</button>
         <span id="learnLabel"></span>
         <div id="learnContainer">
             <input id="learnInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
             <button id="learnButton" onclick="next()">Next</button>
             <progress id="learnProgress"></progress>
         </div>
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="learn.js"></script>
     </body>

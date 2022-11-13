@@ -6,13 +6,6 @@ span#learnLabel {
     font-size: 20px;
 }
 
-a#learnHomeLink {
-    position: fixed;
-    left: 5%;
-    top: 5%;
-    color: gray;
-}
-
 div#learnContainer {
     position: fixed;
     width: 80%;

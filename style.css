@@ -32,6 +32,13 @@ button:disabled {
     border-color: gray;
 }
 
+button#back {
+    padding: 0px;
+    background-color: white;
+    color: gray;
+}
+
+
 input {
     outline: none;
     border: solid 2px #871bc2;
@@ -41,4 +48,21 @@ input {
     margin: 10px;
     font-size: 16px;
     color: black;
+}
+
+td {
+    vertical-align: top;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 0px;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 5%;
+    }
+    td {
+        font-size: 12px;
+        padding: 10px;
+    }
 }

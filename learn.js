@@ -1,7 +1,7 @@
 // Learn.JS
 // prealge
 
-// Reads URL parameters
+// Read URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 
 // Defines HTML elements
@@ -12,10 +12,10 @@ var container = document.getElementById("learnContainer");
 var progressBar = document.getElementById("learnProgress");
 
 // Defines miscellaneous variables
-var termNumber, progress, q;
+var termNumber = 0, progress = 0, q = false;
 
 // Defines set variable
-var set;
+var set, title;
 
 // Sets mode for learn
 var mode;
@@ -34,6 +34,11 @@ function shuffle(array) {
     return array;
 }
 
+// Return to set page
+function exitLearn() {
+    window.location.href = "set.html?file=" + urlParams.get('file');
+}
+
 // Checks answers
 function answer() {
     q = false;
@@ -44,7 +49,7 @@ function answer() {
         set.splice(termNumber, 1);
         if (set.length == 0) {
             label.textContent = ("set complete!");
-            button.textContent = "Restart";
+            button.textContent = "Exit";
         } else label.textContent = "good job!";
     } else {
         container.className = "incorrect";
@@ -68,25 +73,9 @@ function question() {
     input.select();
 }
 
-// Reads study set from JSON file and resets HTML elements
-function setupLearn() {
-    $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
-        set = Object.entries(data.set);
-        if (urlParams.get('i') && urlParams.get('c')) set = set.splice(Number(urlParams.get('i')), Number(urlParams.get('c')));
-        set = shuffle(set);
-        button.textContent = "Next";
-        progressBar.max = set.length;
-        progress = 0;
-        termNumber = 0, q = false;
-        question();
-    }).fail(function(error){
-        console.log(error);
-    });
-}
-
 // Handles question, answer, and reset functions
 function next() {
-    if (set.length === 0) setupLearn("APJuniorEnlgish", 0, 20);
+    if (set.length === 0) exitLearn();
     if (q) answer();
     else question();
     input.focus();
@@ -107,5 +96,10 @@ input.addEventListener('keyup', function (event) {
     }
 });
 
-// Calls setup function
-setupLearn();
+$.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
+    set = shuffle(Object.entries(data.set));
+    progressBar.max = set.length;
+    question();
+}).fail(function(error){
+    console.log(error);
+});
