@@ -37,12 +37,63 @@ button:disabled {
     border-color: gray;
 }
 
-button#back {
+button.back {
     padding: 10px;
     margin: 0px;
     background-color: white;
     color: gray;
     font-size: 40px;
+}
+
+button.back.back-corner {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+button.openTool {
+    background-color: #1BAAC2;
+    padding-left: 15px;
+}
+
+button.openTool ion-icon {
+    padding-right: 5px;
+}
+
+button.flashcardsButton {
+    background-color: white;
+    font-size: 32px;
+    padding: 10px;
+}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    min-width: 135px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    z-index: 1;
+}
+  
+.dropdown-content button {
+    color: black;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    background-color: white;
+    border-radius: none;
+    margin: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 
@@ -62,6 +113,75 @@ td {
     font-size: 14px;
     padding: 10px 20px;
     margin: 0px;
+}
+
+progress {
+    position: fixed;
+    bottom: 10%;
+    left: 10%;
+    width: 80%;
+    height: 10px;
+    border-radius: 5px; 
+}
+
+progress::-webkit-progress-bar {
+    background-color: white;
+}
+
+progress::-webkit-progress-value {
+    background-color: #871bc2;
+    border-radius: 7px;
+}
+
+span#label {
+    position: fixed;
+    bottom: 60%;
+    left: 10%;
+    width: 80%;
+    font-size: 20px;
+}
+
+div#container {
+    position: fixed;
+    width: 80%;
+    left: 10%;
+    bottom: 15%;
+}
+
+#flashcards {
+    text-align: center;
+}
+
+input#learnInput {
+    width: 50%;
+}
+
+.correct input {
+    color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.correct button {
+    background-color: #57C21B !important;
+    border-color: #57C21B !important;
+}
+
+.incorrect input {
+    color: #C2321B !important;
+    border-color: #C2321B !important;
+}
+
+.incorrect button {
+    background-color: #C2321B !important;
+    border-color: #C2321B !important;
+}
+
+.correct progress::-webkit-progress-value {
+    background-color: #57C21B !important;
+}
+
+.incorrect progress::-webkit-progress-value {
+    background-color: #C2321B !important;
 }
 
 @media screen and (max-width: 480px) {

@@ -1,43 +1,7 @@
-// Learn.JS
-// prealge
-
-// Read URL parameters
-const urlParams = new URLSearchParams(window.location.search);
-
 // Defines HTML elements
 var input = document.getElementById("learnInput");
-var label = document.getElementById("learnLabel");
-var button = document.getElementById("learnButton");
-var container = document.getElementById("learnContainer");
-var progressBar = document.getElementById("learnProgress");
-
-// Defines miscellaneous variables
-var termNumber = 0, progress = 0, q = false;
-
-// Defines set variable
-var set, title;
-
-// Sets mode for learn
-var mode;
-if (urlParams.get('mode')) mode = Number(urlParams.get('mode'));
-else mode = 0;
-
-// Shuffles the order of an array
-function shuffle(array) {
-    var m = array.length, t, i;
-    while (m) {
-      i = Math.floor(Math.random() * m--);
-      t = array[m];
-      array[m] = array[i];
-      array[i] = t;
-    }
-    return array;
-}
-
-// Return to set page
-function exitLearn() {
-    window.location.href = "set.html?file=" + urlParams.get('file');
-}
+var button = document.getElementById("nextButton");
+var container = document.getElementById("container");
 
 // Checks answers
 function answer() {
@@ -75,17 +39,11 @@ function question() {
 
 // Handles question, answer, and reset functions
 function next() {
-    if (set.length === 0) exitLearn();
+    if (set.length === 0) exit();
     if (q) answer();
     else question();
     input.focus();
 }
-
-// Sets interval to run progress bar animation
-setInterval(function() {
-    if (progressBar.value < progress) progressBar.value += (progress-progressBar.value)/50;
-    if (progressBar.value > progress) progressBar.value -= (progressBar.value-progress)/50;
-}, 1);
 
 // Event listener to run next function and enable/disable button
 input.addEventListener('keyup', function (event) {
@@ -99,7 +57,7 @@ input.addEventListener('keyup', function (event) {
 $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
     set = shuffle(Object.entries(data.set));
     progressBar.max = set.length;
-    document.getElementById("learnTitle").textContent = data.title;
+    document.getElementById("title").textContent = data.title;
     question();
 }).fail(function(error){
     console.log(error);

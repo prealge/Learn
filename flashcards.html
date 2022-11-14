@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="title">Loading Learn...</title>
+        <title id="title"></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="style/style.css">
     </head>
-    <body id="learn">
+    <body id="flashcards">
         <button onclick="exit()" class="back back-corner"><ion-icon name="arrow-back-circle-outline"></ion-icon></button>
-        <span id="label"></span>
-        <div id="container">
-            <input id="learnInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-            <button id="nextButton" onclick="next()"><ion-icon name="arrow-forward-outline"></ion-icon></button>
-            <progress id="progress"></progress>
+        <span id="label"></span><br/>
+        <div id="container" >
+            <button class="flashcardsButton" onclick="dontKnow()"><ion-icon style="color: #C2321B" name="close-outline"></ion-icon></button>
+            <button class="flashcardsButton" onclick="flip()"><ion-icon style="color: gray" name="refresh-outline"></ion-icon></button>
+            <button class="flashcardsButton" onclick="know()"><ion-icon style="color: #57C21B" name="checkmark-outline"></ion-icon></button>
         </div>
+        <progress id="progress"></progress>
 
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="js/tools.js"></script>
-        <script src="js/learn.js"></script>
+        <script src="js/flashcards.js"></script>
     </body>
 </html>
