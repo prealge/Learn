@@ -1,6 +1,7 @@
 // Defines HTML elements
 var input = document.getElementById("learnInput");
 var button = document.getElementById("nextButton");
+var labelContainer = document.getElementById("label-container");
 var container = document.getElementById("container");
 
 // Checks answers
@@ -9,14 +10,14 @@ function answer() {
     input.readOnly = true;
     if (input.value === set[termNumber][mode]) {
         progress += 1;
-        container.className = "correct";
+        $( "#container" ).removeClass("incorrect").addClass("correct");
         set.splice(termNumber, 1);
         if (set.length == 0) {
             label.textContent = ("set complete!");
             button.textContent = "Exit";
         } else label.textContent = "good job!";
     } else {
-        container.className = "incorrect";
+        $( "#container" ).removeClass("correct").addClass("incorrect");
         label.innerHTML = set[termNumber][mode];
         if (termNumber < set.length) termNumber++;
     }
@@ -31,7 +32,7 @@ function question() {
     q = true;
     label.innerHTML = set[termNumber][mode == 0 ? 1 : 0];
     input.value = "";
-    container.className = "";
+    $("#container").removeClass("correct incorrect");
     input.readOnly = false;
     button.disabled = true;
     input.select();
@@ -53,6 +54,11 @@ input.addEventListener('keyup', function (event) {
         if (event.key === "Enter" && input.value !== "") next();
     }
 });
+
+if (window.mobileCheck()) {
+    $("#container").addClass("small");
+    $("#label-container").addClass("small");
+}
 
 $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
     set = shuffle(Object.entries(data.set));
