@@ -7,7 +7,10 @@
     </head>
     <body id="flashcards">
         <button onclick="exit()" class="back back-corner"><ion-icon name="arrow-back-circle-outline"></ion-icon></button>
-        <span id="label"></span><br/>
+        <div id="label-container">
+            <span id="label"></span>
+        </div>
+        <br/>
         <div id="container" >
             <button class="flashcardsButton" onclick="dontKnow()"><ion-icon style="color: #C2321B" name="close-outline"></ion-icon></button>
             <button class="flashcardsButton" onclick="flip()"><ion-icon style="color: gray" name="refresh-outline"></ion-icon></button>

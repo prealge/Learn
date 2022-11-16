@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,200&display=swap');
 
 body {
     padding: 10%;
-    font-family: 'IBM Plex Sans JP', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
 }
 
 ion-icon {
@@ -12,7 +13,8 @@ ion-icon {
 }
 
 a {
-    font-size: 16px;
+    font-size: 20px;
+    margin: 10px;
     color: #1BAAC2;
     text-decoration: none;
 }
@@ -54,6 +56,7 @@ button.back.back-corner {
 button.openTool {
     background-color: #1BAAC2;
     padding-left: 15px;
+    margin: 20px 10px;
 }
 
 button.openTool ion-icon {
@@ -75,7 +78,7 @@ button.flashcardsButton {
     display: none;
     position: absolute;
     left: 10px;
-    top: 60px;
+    top: 65px;
     min-width: 135px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: white;
@@ -114,7 +117,6 @@ td {
     padding: 10px 20px;
     margin: 0px;
 }
-
 progress {
     position: fixed;
     bottom: 10%;
@@ -133,11 +135,26 @@ progress::-webkit-progress-value {
     border-radius: 7px;
 }
 
-span#label {
+#label-container {
     position: fixed;
-    bottom: 60%;
+    top: 10%;
     left: 10%;
     width: 80%;
+    height: 65%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+#flashcards #label-container  {
+    justify-content: center;
+}
+
+#flashcards  {
+    text-align: center;
+}
+
+#label {
     font-size: 20px;
 }
 
@@ -146,10 +163,7 @@ div#container {
     width: 80%;
     left: 10%;
     bottom: 15%;
-}
-
-#flashcards {
-    text-align: center;
+    justify-content: center;
 }
 
 input#learnInput {

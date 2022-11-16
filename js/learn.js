@@ -17,7 +17,7 @@ function answer() {
         } else label.textContent = "good job!";
     } else {
         container.className = "incorrect";
-        label.textContent = set[termNumber][mode];
+        label.innerHTML = set[termNumber][mode];
         if (termNumber < set.length) termNumber++;
     }
     if (termNumber >= set.length) {
@@ -29,7 +29,7 @@ function answer() {
 // Shows next question
 function question() {
     q = true;
-    label.textContent = set[termNumber][mode == 0 ? 1 : 0];
+    label.innerHTML = set[termNumber][mode == 0 ? 1 : 0];
     input.value = "";
     container.className = "";
     input.readOnly = false;

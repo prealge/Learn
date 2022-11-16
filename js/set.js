@@ -21,8 +21,8 @@ $.getJSON("sets/" + urlParams.get('file') + ".json", function(data){
     document.getElementById("setHeader").textContent = data.title;
     for (let i = 0; i < Object.keys(data.set).length; i++) {
         let newRow =document.getElementById("setTable").insertRow(-1)
-        newRow.insertCell(0).textContent = Object.keys(data.set)[i];
-        newRow.insertCell(1).textContent = Object.entries(data.set)[i][1];
+        newRow.insertCell(0).innerHTML = "<b>" + Object.keys(data.set)[i] + "</b>";
+        newRow.insertCell(1).innerHTML = Object.entries(data.set)[i][1];
     }
 }).fail(function(error){
     console.log(error);
