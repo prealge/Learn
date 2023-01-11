@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="title">Loading Multiple Choice...</title>
+        <title id="title">Loading Learn...</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="style/style.css">
     </head>
@@ -11,8 +11,10 @@
             <span id="label"></span>
         </div>
         <div id="container">
-            <input id="learnInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-            <button id="nextButton" onclick="next()"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+            <button class="mult-choice-btn" id="btn1"></button>
+            <button class="mult-choice-btn" id="btn2"></button>
+            <button class="mult-choice-btn" id="btn3"></button>
+            <button class="mult-choice-btn" id="btn4"></button>
             <progress id="progress"></progress>
         </div>
 
@@ -20,6 +22,6 @@
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="js/tools.js"></script>
-        <script src="js/learn.js"></script>
+        <script src="js/multchoice.js"></script>
     </body>
 </html>
